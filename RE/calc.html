@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Калькулятор</title>
+    
+    <style>
+        input, button 
+        {
+            margin-bottom: 10px;
+        }
+
+        input 
+        {
+            width: 120px;
+            text-align: center;
+        }
+            
+        button 
+        {
+            width: 62px;
+        }
+
+        .pressedGeneral{
+        font-size: 13px;
+        font-family: monospace;
+        color: greenyellow;
+        background: linear-gradient(to left, #1d20eb, #f5af19,#1d20eb);
+        text-decoration: none;
+        border-radius: 10px;
+        background-size: 200%;
+        transition: .5s;
+        }
+
+        .pressedGeneral:hover
+        {
+        background-position: right; 
+        }
+        .pressedGeneral1{
+        font-size: 13px;
+        font-family: monospace;
+        color: greenyellow;
+        background: linear-gradient(to left,  #1d20eb, #f5af19,#1d20eb);
+        text-decoration: none;
+        border-radius: 10px;
+        background-size: 200%;
+        transition: .5s;
+        }
+
+        .pressedGeneral1:hover
+        {
+        background-position: right; 
+        }
+        .pressed 
+        {
+        font-size: 13px;
+        font-family: monospace;
+        color: greenyellow;
+        background: linear-gradient(to left, #f5af19, #f12711,#f5af19);
+        text-decoration: none;
+        border-radius: 10px;
+        background-size: 200%;
+        transition: .5s;
+        }
+        .pressed:hover
+        {
+        background-position: right; 
+        }
+
+        .pressed1
+        {
+        font-size: 13px;
+        font-family: monospace;
+        color: greenyellow;
+        background: linear-gradient(to left, greenyellow, black,greenyellow);
+        text-decoration: none;
+        border-radius: 10px;
+        background-size: 200%;
+        transition: .5s;
+        }
+        
+        .pressed1:hover
+        {
+        background-position: right; 
+        }
+
+        .pressedRed
+        {
+        font-size: 13px;
+        font-family: monospace;
+        color: greenyellow;
+        background: linear-gradient(to left, #00FFFF, Red, #00FFFF);
+        text-decoration: none;
+        border-radius: 10px;
+        background-size: 200%;
+        transition: .5s;
+        }
+        
+        .pressedRed:hover
+        {
+        background-position: right; 
+        }
+    </style>
+
+    <script>
+        function plus() {
+            var x = parseInt(document.getElementById("txtX").value);
+            var y = parseInt(document.getElementById("txtY").value);
+            var z = x + y;
+            
+            document.getElementById("txtZ").value = z;
+
+            document.getElementById("btnPlus").className = "pressed";
+
+            document.getElementById("btnMinus").className = "";
+           
+            if(document.getElementById("txtZ").value > 0){
+            document.getElementById("txtZ").className = "pressed";
+            }
+            else if(document.getElementById("txtZ").value == 0){
+                document.getElementById("txtZ").className = "pressedGeneral1";
+            }
+            else{
+                document.getElementById("txtZ").className = "pressedRed";
+            }
+            
+            document.getElementById("txtX").className = "pressedGeneral1";
+            document.getElementById("txtY").className = "pressedGeneral1";
+        }
+
+        function minus() {
+            var x = parseInt(document.getElementById("txtX").value);
+            var y = parseInt(document.getElementById("txtY").value);
+            var z = x - y;
+            
+            document.getElementById("txtZ").value = z;
+
+            document.getElementById("txtZ").value < 0;
+            document.getElementById("btnMinus").className = "pressed1";
+            
+            document.getElementById("btnPlus").className = "";
+         
+            if(document.getElementById("txtZ").value < 0){
+            document.getElementById("txtZ").className = "pressedRed";
+            }
+            else if(document.getElementById("txtZ").value == 0){
+                document.getElementById("txtZ").className = "pressedGeneral1";
+            }
+            else{
+                document.getElementById("txtZ").className = "pressed1";
+            }
+
+            document.getElementById("txtX").className = "pressedGeneral";
+            document.getElementById("txtY").className = "pressedGeneral";
+        }
+       
+    </script>
+    
+</head>
+<body>
+    <h1>Калькулятор на чистом JS</h1>
+    <input type="text" id="txtX" value="0"/> <br />
+    <input type="text" id="txtY" value="0" /> <br />
+    <button id="btnPlus" onclick="plus();">+</button>
+    <button id="btnMinus" onclick="minus();">-</button> <br />
+    <input type="text" id="txtZ" value="0" /> 
+</body>
+</html>
